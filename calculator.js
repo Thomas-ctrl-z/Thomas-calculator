@@ -18,6 +18,8 @@ deniedInput.addEventListener("keydown", function(event) {
     }
 });
 
+
+
 for (let i = 0; i < button.length; i++) {
 
     button[i].addEventListener('click', function(e) {
@@ -29,7 +31,7 @@ for (let i = 0; i < button.length; i++) {
             input.value = "";
 
          } else if (text === "=") {
-            console.log(existing);
+            Addition(existing);
 
          }  else if (!numbers.includes(text)) {
             input.value += " " + text + " ";
@@ -40,3 +42,14 @@ for (let i = 0; i < button.length; i++) {
 
 }
 
+
+function Addition(existing) {
+    math = existing.split("+").map(s => s.trim());
+    let ans = 0;
+
+    for (let i = 0; i < math.length; i++) {
+       ans += Number(math[i]);
+    }
+
+    input.value = ans;
+}
